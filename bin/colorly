@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+require 'colorly'
+require 'colsole'
+include Colsole
+
+router = Colorly::CLI.router
+
+begin
+  exit router.run ARGV
+
+rescue Interrupt
+  say "\nGoodbye"
+  exit 1  
+
+rescue => e
+  if ENV['DEBUG']
+    puts e.backtrace.reverse 
+    say ""
+  end
+  say "!undred!ERROR: #{e.class}"
+  say e.message
+  exit 1
+
+end

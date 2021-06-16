@@ -1,0 +1,27 @@
+require "runfile-tasks"
+require "byebug"
+require "pretty_trace/enable-trim"
+require "lp"
+
+require_relative 'lib/colorly'
+
+title   "Colorly Developer Toolbelt"
+summary "Runfile tasks for building the Colorly gem"
+version Colorly::VERSION
+
+include Colorly
+
+RunfileTasks::RubyGems.all 'colorly'
+RunfileTasks::Testing.rspec
+
+help   "Run interactive console"
+action :console, :c do
+  run "bundle exec bin/console"
+end
+
+help   "Generate changelog and append old changelog"
+action :changelog do
+  run "git changelog --save"
+end
+
+require './debug' if File.exist? 'debug.rb'
