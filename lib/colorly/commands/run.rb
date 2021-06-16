@@ -1,8 +1,6 @@
 module Colorly
   module Commands
     class RunCmd < Base
-      include Colorly::DSL
-
       summary "Run a colrly script"
 
       # help "This command sends a request to the provided API endpoint. The currently configured network is automatically prepended to the endpoint path, and the output is converted to YAML format."
@@ -21,12 +19,8 @@ module Colorly
 
         if args['--watch']
           run! %Q[filewatcher --immediate "#{script}" "run '#{script}'"]
-        elsif File.exist? script
-          reset
-          instance_eval(File.read script)
-          save unless saved?
         else
-          raise ScriptNotFound, "Unable to load '#{script}'"
+          Script.load(script).run
         end
       end
 

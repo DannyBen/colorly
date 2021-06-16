@@ -1,7 +1,24 @@
 require 'chroma'
 
 module Colorly
-  module DSL
+  class Script
+    attr_reader :script_string, :filename
+
+    def self.load(script_file)
+      raise ScriptNotFound, "Unable to load #{script_file}" unless File.exist? script_file
+      new File.read(script_file), filename: script_file
+    end
+
+    def initialize(script_string, filename: nil)
+      @script_string, @filename = script_string, filename
+    end
+
+    def run
+      reset
+      instance_eval script_string
+      save unless saved?
+    end
+
     def reset
       @html = []
     end

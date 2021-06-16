@@ -28,8 +28,3 @@ add last.darken 20
 add last.desaturate 50
 add last.saturate 50
 add last.spin 30
-
-# Save is called automatically, but can also be explicit
-# If path if not provided, the default is 'out.html'
-# save 'optional_path.html'
-
