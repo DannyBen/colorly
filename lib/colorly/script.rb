@@ -50,5 +50,10 @@ module Colorly
         output[current_title] << last
       end
     end
+
+    def random
+      "#%06x" % (rand * 0xffffff)
+    end
+
   end
 end
