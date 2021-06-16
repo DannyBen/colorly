@@ -1,26 +1,22 @@
 module Colorly
   class Script
-    attr_reader :script_string, :filename
+    attr_reader :script, :filename
 
     def self.load(script_file)
       raise ScriptNotFound, "Unable to load #{script_file}" unless File.exist? script_file
       new File.read(script_file), filename: script_file
     end
 
-    def initialize(script_string, filename: nil)
-      @script_string, @filename = script_string, filename
+    def initialize(script, filename: nil)
+      @script, @filename = script, filename
     end
 
     def run
-      instance_eval script_string
+      instance_eval script
     end
 
     def output
       @output ||= {}
-    end
-
-    def current_title
-      @current_title ||= "Untitled"
     end
 
     def to_h
@@ -37,10 +33,6 @@ module Colorly
       @current_title = title
     end
 
-    def last
-      @last ||= 'red'.paint
-    end
-
     def add(color)      
       if color.is_a? Array
         color.each { |c| add c }
@@ -51,8 +43,18 @@ module Colorly
       end
     end
 
+    def last
+      @last ||= 'red'.paint
+    end
+
     def random
       "#%06x" % (rand * 0xffffff)
+    end
+
+  private
+
+    def current_title
+      @current_title ||= "Untitled"
     end
 
   end
