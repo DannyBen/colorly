@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Colorly</title>    
+  </head>
+  <body>
+    <style>
+      * { font-family: arial; font-size: 14px }
+      
+      body { padding: 10px }
+      html { padding-bottom: 100px }
+      
+      .color {
+        float: left;
+        width: 120px;
+        height: 120px;
+        padding: 10px 10px 10px 10px;
+        border: 2px solid white;
+        border-radius: 10px;
+      }
+      
+      .dark { color: white }
+      
+      h2 {
+        font-size: 20px;
+        margin: 0;
+        padding: 20px 0 5px 0;
+        clear: both;
+      }
+    </style>
+
+    <% output.each do |name, colors| %>
+      <h2><%= name %></h2>
+      <% colors.each do |color| %>
+        <% css_class = color.dark? ? 'dark color' : 'light color' %>
+        <div class='<%= css_class %>' style='background-color:<%= color.to_hex %>'>
+          <%= color.to_hex.upcase %><br>
+          <%= color.shade %><br>
+          <%= color.name %><br>
+        </div>
+      <% end %>
+    <% end %>
+  </body>
+</html>
