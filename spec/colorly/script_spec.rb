@@ -51,12 +51,35 @@ describe Script do
   end
 
   describe '#add' do
-    it "adds a new color to the current color set" do
-      subject.title "Preroll"
-      subject.add "yellow"
+    before do
+      subject.title "Test"
+      subject.add color
       subject.run
-      expect(subject.output["Preroll"].first.name).to eq "Yellow"
     end
+
+    let(:color) { "yellow" }
+
+    it "adds a new color to the current color set" do
+      expect(subject.output["Test"].first.name).to eq "Yellow"
+    end
+
+    context "when color is a Chroma::Color" do
+      let(:color) { "blue".paint }
+
+      it "adds it to the current color set" do
+        expect(subject.output["Test"].first.name).to eq "Blue"
+      end
+    end
+
+    context "when color is an Array" do
+      let(:color) { ["green", "red".paint] }
+
+      it "adds all colors the current color set" do
+        expect(subject.output["Test"].first.name).to eq "Green"
+        expect(subject.output["Test"].last.name).to eq "Red"
+      end
+    end
+    
   end
 
   describe '#last' do
