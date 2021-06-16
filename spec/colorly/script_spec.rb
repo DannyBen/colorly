@@ -20,6 +20,14 @@ describe Script do
     it "sets the filename attribute" do
       expect(subject.filename).to eq script_file
     end
+
+    context "when the file is not found" do
+      let(:script_file) { "not-found.rb" }
+
+      it "raises an error" do
+        expect { subject }.to raise_error Colorly::ScriptNotFound
+      end
+    end
   end
 
   describe '#run' do
