@@ -38,9 +38,13 @@ module Colorly
         color.each { |c| add c }
       else
         output[current_title] ||= []
-        @last = color.is_a?(String) ? color.paint : color
+        register color
         output[current_title] << last
       end
+    end
+
+    def register(color)
+      @last = color.is_a?(String) ? color.paint : color
     end
 
     def last
