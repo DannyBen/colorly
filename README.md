@@ -20,10 +20,42 @@ The colorly command line outputs the palette as JSON, YAML or HTML.
 $ gem install colorly
 ```
 
+## Example
 
-## Usage
+Colorly provides you with a simple ruby-based DSL for generating a color palette.
+
+Start by creating this file:
+
+```ruby
+# sample.rb
+title "Set 1"
+add 'red'.lighten 20
+add last.spin 60
+add last.spin 60
+```
+
+then run it by calling:
+
+```
+$ colorly sample.rb output.html
+```
+
+output:
+
+![](assets/readme-sample-1.png)
+
+
+
+
+## Usage 
 
 SOON
+
+## Credits
+
+- [Jeremy Fairbank](https://github.com/jfairbank) for the [chroma] gem.
+- [Chirag Mehta](https://chir.ag/) for the original Javascript [color naming functions](https://chir.ag/projects/name-that-color).
+- [Colblindor](https://www.color-blindness.com/color-name-hue/) for the additional base color (shade) work.
 
 ---
 
