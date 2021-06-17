@@ -10,15 +10,21 @@ describe StringRefinements do
     end
   end
 
-  describe '#darken' do
+  describe '#brighten' do
     it "returns Chroma::Color" do
-      expect(subject.darken 10).to be_a Chroma::Color
+      expect(subject.brighten 10).to be_a Chroma::Color
     end
   end
 
   describe '#lighten' do
     it "returns Chroma::Color" do
       expect(subject.lighten 10).to be_a Chroma::Color
+    end
+  end
+
+  describe '#darken' do
+    it "returns Chroma::Color" do
+      expect(subject.darken 10).to be_a Chroma::Color
     end
   end
 
@@ -31,6 +37,18 @@ describe StringRefinements do
   describe '#desaturate' do
     it "returns Chroma::Color" do
       expect(subject.desaturate 10).to be_a Chroma::Color
+    end
+  end
+
+  describe '#greyscale' do
+    it "returns Chroma::Color" do
+      expect(subject.greyscale).to be_a Chroma::Color
+    end
+  end
+
+  describe '#grayscale' do
+    it "returns Chroma::Color" do
+      expect(subject.grayscale).to be_a Chroma::Color
     end
   end
 

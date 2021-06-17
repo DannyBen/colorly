@@ -45,7 +45,7 @@ output:
 
 ![](assets/readme-sample-1.png)
 
-For more detailed examples, view the [examples folder](examples)
+For more detailed examples, view the [examples folder](examples).
 
 
 ## Usage 

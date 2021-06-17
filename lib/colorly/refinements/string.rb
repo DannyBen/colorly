@@ -6,12 +6,16 @@ module StringRefinements
       paint.spin *args
     end
 
-    def darken(*args)
-      paint.darken *args
+    def brighten(*args)
+      paint.brighten *args
     end
 
     def lighten(*args)
       paint.lighten *args
+    end
+
+    def darken(*args)
+      paint.darken *args
     end
 
     def saturate(*args)
@@ -21,6 +25,11 @@ module StringRefinements
     def desaturate(*args)
       paint.desaturate *args
     end
+
+    def greyscale
+      paint.greyscale
+    end
+    alias grayscale greyscale
 
     def palette(*args)
       paint.palette *args
