@@ -12,7 +12,13 @@ module Colorly
     end
 
     def run
-      instance_eval script
+      if filename
+        instance_eval script, filename
+      else
+        instance_eval script
+      end
+    rescue => e
+      raise ScriptError.new e
     end
 
     def output

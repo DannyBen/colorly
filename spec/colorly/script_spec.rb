@@ -40,6 +40,15 @@ describe Script do
       expect(matter["Hello"].count).to eq 2
       expect(matter["Hello"].first).to be_a Chroma::Color
     end
+
+    context "when the script contains errors" do
+      subject { described_class.load script_file }
+      let(:script_file) { 'spec/fixtures/broken_script.rb' }
+
+      it "raises a ScriptError" do
+        expect { subject.run }.to raise_approval('script/error')
+      end
+    end
   end
 
   describe '#to_h' do
