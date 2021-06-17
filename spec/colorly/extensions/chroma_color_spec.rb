@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Chroma::Color do
-  subject { 'blue'.darken(20) }
+  subject { 'blue'.paint.darken(20) }
 
   describe '#name' do
     it "returns the color's name" do

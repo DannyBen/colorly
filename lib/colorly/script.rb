@@ -1,5 +1,6 @@
 module Colorly
   class Script
+    using StringRefinements
     attr_reader :script, :filename
 
     def self.load(script_file)

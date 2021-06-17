@@ -1,6 +1,7 @@
 require 'spec_helper'
 
-describe String do
+describe StringRefinements do
+  using StringRefinements
   subject { 'red' }
 
   describe '#spin' do
