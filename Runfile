@@ -19,9 +19,4 @@ action :console, :c do
   run "bundle exec bin/console"
 end
 
-help   "Generate changelog and append old changelog"
-action :changelog do
-  run "git changelog --save"
-end
-
 require './debug' if File.exist? 'debug.rb'
