@@ -2,6 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/colorly.svg)](https://badge.fury.io/rb/colorly)
 [![Build Status](https://github.com/DannyBen/colorly/workflows/Test/badge.svg)](https://github.com/DannyBen/colorly/actions?query=workflow%3ATest)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a708b1651a6caf451d53/maintainability)](https://codeclimate.com/github/DannyBen/colorly/maintainability)
 
 ---
 
