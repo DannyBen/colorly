@@ -1,7 +1,0 @@
-#<Colorly::ScriptSyntaxError: spec/fixtures/broken_script2.rb:3: syntax error, unexpected local variable or method, expecting `do' or '{' or '('
-5.times do { add last.spin asd }
-                 ^~~~
-spec/fixtures/broken_script2.rb:3: syntax error, unexpected '}', expecting `end'
-....times do { add last.spin asd }
-...                              ^
->
