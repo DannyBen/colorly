@@ -19,4 +19,20 @@ action :console, :c do
   run "bundle exec bin/console"
 end
 
+help   "Generate examples README"
+action :examples, :x do
+  script = Script.load 'examples/example.rb'
+  script.run
+  output = script.output
+  output.each do |name, colors|
+    puts "\n## #{name}\n\n"
+    colors.each do |color|
+      font_color = color.dark? ? 'ffffff' : '000000'
+      color_name = color.to_hex.upcase.gsub('#', '%23')
+      image_url = "https://via.placeholder.com/40x40/#{color.to_hex[1..]}/#{font_color}?text=%20"
+      puts "![#{color.to_hex}](#{image_url})"
+    end
+  end
+end
+
 require './debug' if File.exist? 'debug.rb'
