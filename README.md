@@ -95,6 +95,35 @@ add last.spin 30
 add random.desaturate 10
 ```
 
+## Using from Ruby code
+
+If you wish to use Colorly from your own Ruby code, simply load a script to 
+the Script class:
+
+```ruby
+require 'colorly'
+
+# Load from a file
+script = Colorly::Script.load 'script_file.rb'
+
+# ... or from a string
+script_string = "title 'Hello'; add 'red'.spin 10 ; add last.spin 10"
+script = Colorly::Script.new script_string
+
+# Run it
+script.run
+
+# Get its output - each color is a Chroma::Color object
+p script.output
+p script.output["Hello"].first.class
+#=> {"Hello"=>[#ff2b00, #ff5500]}
+#=> Chroma::Color
+
+# ... or, use to_h to get a pure simple hash where each color is the hex string.
+p script.to_h
+#=> {"Hello"=>["#ff2b00", "#ff5500"]}
+```
+
 ## Contributing / Support
 
 If you experience any issue, have a question or a suggestion, or if you wish
