@@ -1,2 +1,1 @@
-#<Colorly::ScriptError: Something is wrong in spec/fixtures/broken_script.rb line 3
-undefined method `no_such_method'>
+#<Colorly::ScriptError: spec/fixtures/broken_script.rb:3: undefined method `no_such_method'>

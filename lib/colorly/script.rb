@@ -13,11 +13,9 @@ module Colorly
     end
 
     def run
-      if filename
-        instance_eval script, filename
-      else
-        instance_eval script
-      end
+      run!
+    rescue SyntaxError => e
+      raise ScriptSyntaxError.new e
     rescue => e
       raise ScriptError.new e
     end
@@ -63,6 +61,14 @@ module Colorly
     end
 
   private
+
+    def run!
+      if filename
+        instance_eval script, filename
+      else
+        instance_eval script
+      end
+    end
 
     def current_title
       @current_title ||= "Untitled"
