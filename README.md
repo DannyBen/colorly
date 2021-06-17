@@ -95,12 +95,20 @@ add last.spin 30
 add random.desaturate 10
 ```
 
+## Contributing / Support
+
+If you experience any issue, have a question or a suggestion, or if you wish
+to contribute, feel free to [open an issue][issues].
+
 ## Credits
 
 - [Jeremy Fairbank](https://github.com/jfairbank) for the [chroma] gem.
 - [Chirag Mehta](https://chir.ag/) for the original Javascript [color naming functions](https://chir.ag/projects/name-that-color).
 - [Colblindor](https://www.color-blindness.com/color-name-hue/) for the additional base color (shade) work.
 
+
+
 ---
 
 [chroma]: https://github.com/jfairbank/chroma
+[issues]: https://github.com/DannyBen/colorly/issues
