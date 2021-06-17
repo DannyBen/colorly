@@ -49,6 +49,15 @@ describe Script do
         expect { subject.run }.to raise_approval('script/error')
       end
     end
+
+    context "when the script contains syntax errors" do
+      subject { described_class.load script_file }
+      let(:script_file) { 'spec/fixtures/broken_script2.rb' }
+
+      it "raises a ScriptSyntaxError" do
+        expect { subject.run }.to raise_error(ScriptSyntaxError)
+      end
+    end
   end
 
   describe '#to_h' do
