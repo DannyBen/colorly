@@ -1,5 +1,5 @@
 # This script demonstrates most functions of the Colorly DSL
-# Run it with `colorly tutorial.rb out.html`
+# Run it with `colorly example.rb out.html`
 
 # Start a new color set
 title "One"
