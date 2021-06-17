@@ -75,10 +75,12 @@ They will be forwarded to `Chroma`:
 
 ```ruby
 'red'.spin        # same as 'red'.paint.spin
+'red'.brighten    # same as 'red'.paint.brighten
 'red'.darken      # same as 'red'.paint.darken 
 'red'.lighten     # same as 'red'.paint.lighten 
 'red'.saturate    # same as 'red'.paint.saturate 
 'red'.desaturate  # same as 'red'.paint.desaturate 
+'red'.greyscale   # same as 'red'.paint.greyscale (also grayscale)
 'red'.palette     # same as 'red'.paint.palette
 ```
 
