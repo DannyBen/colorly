@@ -55,7 +55,7 @@ describe Script do
       let(:script_file) { 'spec/fixtures/broken_script2.rb' }
 
       it "raises a ScriptSyntaxError" do
-        expect { subject.run }.to raise_approval('script/syntax_error').diff(20)
+        expect { subject.run }.to raise_error(ScriptSyntaxError)
       end
     end
   end
