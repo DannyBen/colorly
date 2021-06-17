@@ -44,12 +44,53 @@ output:
 
 ![](assets/readme-sample-1.png)
 
-
+For more detailed examples, view the [examples folder](examples)
 
 
 ## Usage 
 
-SOON
+Colorly scripts are built with a minimalist set of Ruby commands (DSL):
+
+```ruby
+# Start a new color set
+title "Any unique name for this set"
+
+# Add colors to this set
+add 'yellow'.darken(10).desaturate(10)
+add last.spin 20
+
+# Start another set
+title "New set"
+add '#ff3344'
+# ...
+```
+
+The colors provided to the `add` command can be
+[anything that is supported by `Chroma`](https://github.com/jfairbank/chroma#creating-colors),
+or an array of the same.
+
+In addition, you can call the below `Chroma` methods directly on any color.
+They will be forwarded to `Chroma`:
+
+```ruby
+'red'.spin        # same as 'red'.paint.spin
+'red'.darken      # same as 'red'.paint.darken 
+'red'.lighten     # same as 'red'.paint.lighten 
+'red'.saturate    # same as 'red'.paint.saturate 
+'red'.desaturate  # same as 'red'.paint.desaturate 
+'red'.palette     # same as 'red'.paint.palette
+```
+
+You can use the last added color with the variable `last`, and generate a
+random color by calling `random`:
+
+```ruby
+title "Example"
+add 'red'.spin 10
+add last.spin 30
+add last.spin 30
+add random.desaturate 10
+```
 
 ## Credits
 
