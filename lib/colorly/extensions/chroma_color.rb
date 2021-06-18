@@ -33,15 +33,15 @@ protected
         }
       end
 
-      this_rgb = this_hex.paint.rgb.to_a
-      this_hsl = this_hex.paint.hsl.to_a
+      r2, g2, b2 = this_hex.paint.rgb.to_a
+      h2, s2, l2 = this_hex.paint.hsl.to_a
 
-      ndf1 = (r - this_rgb[0]) ** 2 + 
-             (g - this_rgb[1]) ** 2 + 
-             (b - this_rgb[2]) ** 2
-      ndf2 = (((h - this_hsl[0]) ** 2).abs / 360.0) + 
-             ((s - this_hsl[1]) ** 2).abs + 
-             ((l - this_hsl[2]) ** 2).abs
+      ndf1 = (r - r2) ** 2 + 
+             (g - g2) ** 2 + 
+             (b - b2) ** 2
+      ndf2 = (((h - h2) ** 2).abs / 360.0) + 
+             ((s - s2) ** 2).abs + 
+             ((l - l2) ** 2).abs
 
       ndf = ndf1 + ndf2 * 2
 
