@@ -16,4 +16,5 @@ ENV['LINES'] = '30'
 
 RSpec.configure do |c|
   c.include SpecMixin
+  c.filter_run_excluding :slow if ENV['FAST']
 end

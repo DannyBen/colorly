@@ -8,7 +8,7 @@ describe Chroma::Color do
     script.output["Untitled"].map { |c| "#{c.to_hex} : #{c.shade} : #{c.name}" }
   end
 
-  it "properly identifies color names and shades" do
+  it "properly identifies color names and shades", :slow do
     expect(colors.to_yaml).to match_approval('color-names')
   end
 

@@ -1,3 +1,3 @@
 Usage:
   colorly SCRIPT [OUTPUT_PATH] [--watch --names]
-  colorly --help
+  colorly --help | --version

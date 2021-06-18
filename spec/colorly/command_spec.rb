@@ -18,6 +18,12 @@ describe Command do
     end
   end
 
+  context "with --version" do
+    it "shows version number" do
+      expect { subject.run %W[ --version ] }.to output("#{VERSION}\n").to_stdout
+    end
+  end
+
   context "with a script argument" do
     it "executes a script and outputs to stdout" do
       expect { subject.run %W[ #{script_path} ] }.to output_approval('cli/basic')

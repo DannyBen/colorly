@@ -4,7 +4,7 @@ Execute a colorly script and save or print its output
 
 Usage:
   colorly SCRIPT [OUTPUT_PATH] [--watch --names]
-  colorly --help
+  colorly --help | --version
 
 Options:
   -w --watch
@@ -15,6 +15,9 @@ Options:
 
   -h --help
     Show this help
+
+  --version
+    Show version number
 
 Parameters:
   SCRIPT

@@ -10,11 +10,12 @@ module Colorly
   class Command < MisterBin::Command
     include Colsole
     summary "Run a colorly script"
+    version Colorly::VERSION
 
     help "Execute a colorly script and save or print its output"
 
     usage "colorly SCRIPT [OUTPUT_PATH] [--watch --names]"
-    usage "colorly --help"
+    usage "colorly --help | --version"
 
     option "-w --watch", "Watch the script file and regenerate on change"
     option "-n --names", "Also show color names and shades (slower)"
