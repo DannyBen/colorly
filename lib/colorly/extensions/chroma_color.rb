@@ -16,8 +16,6 @@ protected
   end
 
   def name_info!
-    rgb1 = rgb
-    hsl1 = hsl
     distance = nil
     result = nil
 
@@ -30,8 +28,9 @@ protected
         }
       end
 
-      rgb2 = this_hex.paint.rgb.to_a
-      hsl2 = this_hex.paint.hsl.to_a
+      # rgb2 = this_hex.paint.rgb.to_a
+      # hsl2 = this_hex.paint.hsl.to_a
+      byebug
       candidate_distance = color_distance rgb1, hsl1, rgb2, hsl2
 
       if !distance or distance > candidate_distance
