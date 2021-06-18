@@ -22,9 +22,10 @@ module Colorly
     param "SCRIPT", "Path to script file"
     param "OUTPUT_PATH", "Path to output file. The output format is determined by the file extension. Supported formats:\n- YAML (.yaml or .yml)\n- JSON (.json)\n- HTML (.html)\nIf left empty, YAML format will be sent to STDOUT."
 
-    example "colorly examples/sample.rb"
-    example "colorly examples/sample.rb out.json"
-    example "colorly examples/sample.rb out.html --watch"
+    example "colorly examples/example.rb"
+    example "colorly examples/example.rb --names"
+    example "colorly examples/example.rb out.json"
+    example "colorly examples/example.rb out.html --watch --names"
 
     attr_reader :script_path, :script, :out_path, :use_names
 
