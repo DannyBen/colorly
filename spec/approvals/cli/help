@@ -7,10 +7,10 @@ Usage:
   colorly --help
 
 Options:
-  -w, --watch
+  -w --watch
     Watch the script file and regenerate on change
 
-  -n, --names
+  -n --names
     Also show color names and shades (slower)
 
   -h --help

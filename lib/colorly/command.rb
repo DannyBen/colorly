@@ -16,8 +16,8 @@ module Colorly
     usage "colorly SCRIPT [OUTPUT_PATH] [--watch --names]"
     usage "colorly --help"
 
-    option "-w, --watch", "Watch the script file and regenerate on change"
-    option "-n, --names", "Also show color names and shades (slower)"
+    option "-w --watch", "Watch the script file and regenerate on change"
+    option "-n --names", "Also show color names and shades (slower)"
 
     param "SCRIPT", "Path to script file"
     param "OUTPUT_PATH", "Path to output file. The output format is determined by the file extension. Supported formats:\n- YAML (.yaml or .yml)\n- JSON (.json)\n- HTML (.html)\nIf left empty, YAML format will be sent to STDOUT."
