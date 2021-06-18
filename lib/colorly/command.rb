@@ -35,6 +35,7 @@ module Colorly
       @use_names = args['--names']
 
       if args['--watch']
+        generate
         watch_and_generate
       else
         generate
