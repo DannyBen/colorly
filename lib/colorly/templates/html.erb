@@ -29,16 +29,23 @@
       }
     </style>
 
-    <% output.each do |name, colors| %>
+    <%- output.each do |name, colors| -%>
+    <div class='colorset'>
       <h2><%= name %></h2>
-      <% colors.each do |color| %>
-        <% css_class = color.dark? ? 'dark color' : 'light color' %>
-        <div class='<%= css_class %>' style='background-color:<%= color.to_hex %>'>
-          <%= color.to_hex.upcase %><br>
-          <%= color.shade %><br>
-          <%= color.name %><br>
-        </div>
-      <% end %>
-    <% end %>
+
+      <%- colors.each do |color| -%>
+      <%- css_class = color.dark? ? 'dark color' : 'light color' -%>
+      <div class='<%= css_class %>' style='background-color:<%= color.to_hex %>'>
+        <%= color.to_hex.upcase %>
+        <%- if use_names -%>
+        <br><%= color.shade %><br><%= color.name %>
+        <%- end -%>
+      </div>
+
+      <%- end -%>
+    </div>
+
+    <%- end -%>
+
   </body>
 </html>

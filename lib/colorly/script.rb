@@ -24,13 +24,18 @@ module Colorly
       @output ||= {}
     end
 
-    def to_h
+    def simple_output(names: false)
       output.transform_values do |chroma_array|
         chroma_array.map do |chroma|
-          chroma.to_hex
+          if names
+            { hex: chroma.to_hex, name: [chroma.name, chroma.shade] }
+          else
+            chroma.to_hex
+          end
         end
       end
     end
+    alias to_h simple_output
 
     # DSL Methods
 
