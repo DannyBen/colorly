@@ -10,6 +10,12 @@ describe Command do
     expect { subject.run %W[ #{script_path} ] }.to output_approval('cli/basic')
   end
 
+  context "with --names", :focus do
+    it "also outputs color names" do
+      expect { subject.run %W[ #{script_path} --names ] }.to output_approval('cli/basic-names')
+    end
+  end
+
   context "with an output path that ends with .json" do
     let(:out) { 'spec/tmp/out.json' }
     
@@ -41,6 +47,16 @@ describe Command do
       expect(File).to exist(out)      
       expect(File.read out).to match_approval('cli/html-content')
     end
+
+    context "with --names" do
+      it "also renders color names in the HTML" do
+        expect(File).not_to exist(out)
+        expect { subject.run %W[ #{script_path} #{out} --names ] }.to output_approval('cli/html-names')
+        expect(File).to exist(out)      
+        expect(File.read out).to match_approval('cli/html-names-content')
+      end
+    end
+
   end
 
   context "with an output path that ends with an unknown extension" do

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Colorly</title>    
+  </head>
+  <body>
+    <style>
+      * { font-family: arial; font-size: 14px }
+      
+      body { padding: 10px }
+      html { padding-bottom: 100px }
+      
+      .color {
+        float: left;
+        width: 120px;
+        height: 120px;
+        padding: 10px 10px 10px 10px;
+        border: 2px solid white;
+        border-radius: 10px;
+      }
+      
+      .dark { color: white }
+      
+      h2 {
+        font-size: 20px;
+        margin: 0;
+        padding: 20px 0 5px 0;
+        clear: both;
+      }
+    </style>
+
+    <div class='colorset'>
+      <h2>Two colors</h2>
+
+      <div class='light color' style='background-color:#ff7733'>
+        #FF7733
+        <br>Orange<br>Burnt Orange
+      </div>
+
+      <div class='light color' style='background-color:#33bbff'>
+        #33BBFF
+        <br>Blue<br>Summer Sky
+      </div>
+
+    </div>
+
+    <div class='colorset'>
+      <h2>Three colors</h2>
+
+      <div class='dark color' style='background-color:#f20d0d'>
+        #F20D0D
+        <br>Red<br>Red
+      </div>
+
+      <div class='light color' style='background-color:#0df20d'>
+        #0DF20D
+        <br>Green<br>Free Speech Green
+      </div>
+
+      <div class='dark color' style='background-color:#0d0df2'>
+        #0D0DF2
+        <br>Blue<br>Blue
+      </div>
+
+    </div>
+
+
+  </body>
+</html>
