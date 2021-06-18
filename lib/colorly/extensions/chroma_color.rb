@@ -28,10 +28,7 @@ protected
         }
       end
 
-      # rgb2 = this_hex.paint.rgb.to_a
-      # hsl2 = this_hex.paint.hsl.to_a
-      byebug
-      candidate_distance = color_distance rgb1, hsl1, rgb2, hsl2
+      candidate_distance = color_distance this_hex.paint
 
       if !distance or distance > candidate_distance
         distance = candidate_distance
@@ -45,20 +42,20 @@ protected
     result
   end
 
-  def color_distance(rgb1, hsl1, rgb2, hsl2)
-    rgb_distance(rgb1, rgb2) + hsl_distance(hsl1, hsl2) * 2
+  def color_distance(other)
+    rgb_distance(other) + hsl_distance(other) * 2
   end
 
-  def rgb_distance(rgb1, rgb2)
-    r1, g1, b1 = rgb1
-    r2, g2, b2 = rgb2
+  def rgb_distance(other)
+    r1, g1, b1 = rgb
+    r2, g2, b2 = other.rgb
 
     (r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2
   end
 
-  def hsl_distance(hsl1, hsl2)
-    h1, s1, l1 = hsl1
-    h2, s2, l2 = hsl2
+  def hsl_distance(other)
+    h1, s1, l1 = hsl
+    h2, s2, l2 = other.hsl
 
     (((h1 - h2) ** 2).abs / 360.0) + 
       ((s1 - s2) ** 2).abs + 
