@@ -6,8 +6,28 @@ describe Command do
 
   before { reset_tmp_dir }
 
-  it "executes a script and outputs to stdout" do
-    expect { subject.run %W[ #{script_path} ] }.to output_approval('cli/basic')
+  context "without arguments" do
+    it "shows usage" do
+      expect { subject.run }.to output_approval('cli/usage')
+    end
+  end
+
+  context "with --help" do
+    it "shows detailed usage" do
+      expect { subject.run %W[ --help ] }.to output_approval('cli/help')
+    end
+  end
+
+  context "with a script argument" do
+    it "executes a script and outputs to stdout" do
+      expect { subject.run %W[ #{script_path} ] }.to output_approval('cli/basic')
+    end
+  end
+
+  context "with --names" do
+    it "also outputs color names" do
+      expect { subject.run %W[ #{script_path} --names ] }.to output_approval('cli/basic-names')
+    end
   end
 
   context "with an output path that ends with .json" do
@@ -41,6 +61,16 @@ describe Command do
       expect(File).to exist(out)      
       expect(File.read out).to match_approval('cli/html-content')
     end
+
+    context "with --names" do
+      it "also renders color names in the HTML" do
+        expect(File).not_to exist(out)
+        expect { subject.run %W[ #{script_path} #{out} --names ] }.to output_approval('cli/html-names')
+        expect(File).to exist(out)      
+        expect(File.read out).to match_approval('cli/html-names-content')
+      end
+    end
+
   end
 
   context "with an output path that ends with an unknown extension" do

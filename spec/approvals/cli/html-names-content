@@ -34,10 +34,12 @@
 
       <div class='light color' style='background-color:#ff7733'>
         #FF7733
+        <br>Orange<br>Burnt Orange
       </div>
 
       <div class='light color' style='background-color:#33bbff'>
         #33BBFF
+        <br>Blue<br>Summer Sky
       </div>
 
     </div>
@@ -47,14 +49,17 @@
 
       <div class='dark color' style='background-color:#f20d0d'>
         #F20D0D
+        <br>Red<br>Red
       </div>
 
       <div class='light color' style='background-color:#0df20d'>
         #0DF20D
+        <br>Green<br>Free Speech Green
       </div>
 
       <div class='dark color' style='background-color:#0d0df2'>
         #0D0DF2
+        <br>Blue<br>Blue
       </div>
 
     </div>

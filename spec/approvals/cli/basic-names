@@ -1,0 +1,23 @@
+---
+Two colors:
+- :hex: "#ff7733"
+  :name:
+  - Burnt Orange
+  - Orange
+- :hex: "#33bbff"
+  :name:
+  - Summer Sky
+  - Blue
+Three colors:
+- :hex: "#f20d0d"
+  :name:
+  - Red
+  - Red
+- :hex: "#0df20d"
+  :name:
+  - Free Speech Green
+  - Green
+- :hex: "#0d0df2"
+  :name:
+  - Blue
+  - Blue

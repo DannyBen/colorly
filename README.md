@@ -119,9 +119,16 @@ p script.output["Hello"].first.class
 #=> {"Hello"=>[#ff2b00, #ff5500]}
 #=> Chroma::Color
 
-# ... or, use to_h to get a pure simple hash where each color is the hex string.
-p script.to_h
+# Get a simplified output where each color is just its hex string
+p script.simple_output
 #=> {"Hello"=>["#ff2b00", "#ff5500"]}
+
+# Get a simplified output, including color names (slower)
+# Get a simplified output, including color names (slower)
+pp script.simple_output names: true
+#=> {"Hello"=>
+#=>   [{:hex=>"#ff2b00", :name=>["Scarlet", "Red"]},
+#=>    {:hex=>"#ff5500", :name=>["International Orange", "Orange"]}]}
 ```
 
 ## Contributing / Support

@@ -1,0 +1,35 @@
+Run a colorly script
+
+Execute a colorly script and save or print its output
+
+Usage:
+  colorly SCRIPT [OUTPUT_PATH] [--watch --names]
+  colorly --help
+
+Options:
+  -w, --watch
+    Watch the script file and regenerate on change
+
+  -n, --names
+    Also show color names and shades (slower)
+
+  -h --help
+    Show this help
+
+Parameters:
+  SCRIPT
+    Path to script file
+
+  OUTPUT_PATH
+    Path to output file. The output format is determined by the file extension.
+    Supported formats:
+    - YAML (.yaml or .yml)
+    - JSON (.json)
+    - HTML (.html)
+    If left empty, YAML format will be sent to STDOUT.
+
+Examples:
+  colorly examples/example.rb
+  colorly examples/example.rb --names
+  colorly examples/example.rb out.json
+  colorly examples/example.rb out.html --watch --names

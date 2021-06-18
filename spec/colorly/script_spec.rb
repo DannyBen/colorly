@@ -60,10 +60,17 @@ describe Script do
     end
   end
 
-  describe '#to_h' do
+  describe '#simple_output' do
     it "returns a clean hash with colors and titles" do
       subject.run
-      expect(subject.to_h).to eq("Hello" => ["#ff0000", "#00ffff"])
+      expect(subject.simple_output).to eq("Hello" => ["#ff0000", "#00ffff"])
+    end
+
+    context "with names: true" do
+      it "also adds color names to the returned hash" do
+        subject.run
+        expect(subject.simple_output names: true).to eq("Hello" => [{:hex=>"#ff0000", :name=>["Red", "Red"]}, {:hex=>"#00ffff", :name=>["Aqua", "Blue"]}])
+      end
     end
 
     context "with more than one sets" do
@@ -71,8 +78,15 @@ describe Script do
 
       it "returns all sets" do
         subject.run
-        expect(subject.to_h).to eq("One" => ["#ff0000"], "Two" => ["#0000ff"])
+        expect(subject.simple_output).to eq("One" => ["#ff0000"], "Two" => ["#0000ff"])
       end
+    end
+  end
+
+  describe '#to_h' do
+    it "returns the same output as simple_output without names" do
+      subject.run
+      expect(subject.to_h).to eq(subject.simple_output)
     end
   end
 
