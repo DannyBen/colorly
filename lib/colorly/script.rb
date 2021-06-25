@@ -1,5 +1,6 @@
 module Colorly
   class Script
+    include DSL
     using StringRefinements
     attr_reader :script, :filename
 
@@ -37,34 +38,6 @@ module Colorly
     end
     alias to_h simple_output
 
-    # DSL Methods
-
-    def title(title)
-      @current_title = title
-    end
-
-    def add(color)      
-      if color.is_a? Array
-        color.each { |c| add c }
-      else
-        output[current_title] ||= []
-        register color
-        output[current_title] << last
-      end
-    end
-
-    def register(color)
-      @last = color.is_a?(String) ? color.paint : color
-    end
-
-    def last
-      @last ||= 'red'.paint
-    end
-
-    def random
-      "#%06x" % (rand * 0xffffff)
-    end
-
   private
 
     def run!
@@ -73,6 +46,10 @@ module Colorly
       else
         instance_eval script
       end
+    end
+
+    def register(color)
+      @last = color.is_a?(String) ? color.paint : color
     end
 
     def current_title
