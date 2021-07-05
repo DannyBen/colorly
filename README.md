@@ -6,7 +6,7 @@
 
 ---
 
-Colorly is a command line urility and a Ruby library for generating color
+Colorly is a command line utility and a Ruby library for generating color
 palettes using a simple DSL.
 
 It is a thin wrapper around the [chroma] gem.
