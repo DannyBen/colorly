@@ -16,7 +16,7 @@ RunfileTasks::Testing.rspec
 
 help   "Run interactive console"
 action :console, :c do
-  run "bundle exec bin/console"
+  exec "bundle exec bin/console"
 end
 
 help   "Generate examples README"
