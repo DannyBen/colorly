@@ -5,7 +5,7 @@ describe Chroma::Color do
   let(:colors) do
     script = Script.new "180.times { add last.spin 2 }"
     script.run
-    script.output["Untitled"].map { |c| "#{c.to_hex} : #{c.shade} : #{c.name}" }
+    script.output["Colors"].map { |c| "#{c.to_hex} : #{c.shade} : #{c.name}" }
   end
 
   it "properly identifies color names and shades", :slow do
