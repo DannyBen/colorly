@@ -3,6 +3,7 @@ module Colorly
     include DSL
     using StringRefinements
     attr_reader :script, :filename
+    attr_writer :params
 
     def self.load(script_file)
       raise ScriptNotFound, "Unable to load #{script_file}" unless File.exist? script_file
@@ -23,6 +24,10 @@ module Colorly
 
     def output
       @output ||= {}
+    end
+
+    def params
+      @params ||= {}
     end
 
     def simple_output(names: false)
@@ -53,7 +58,7 @@ module Colorly
     end
 
     def current_title
-      @current_title ||= "Untitled"
+      @current_title ||= "Colors"
     end
 
   end

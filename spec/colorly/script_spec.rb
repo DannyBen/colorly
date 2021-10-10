@@ -83,6 +83,18 @@ describe Script do
     end
   end
 
+  describe '#params' do
+    let(:script) { "add params[:base] ; add last.spin 180" }
+    before { subject.params[:base] = '#CDC' }
+    
+    it "provides a mechanism to pass context variables to the script" do
+      subject.run
+      matter = subject.simple_output
+
+      expect(matter["Colors"]).to eq ['#ccddcc', '#ddccdd']
+    end
+  end
+
   describe '#to_h' do
     it "returns the same output as simple_output without names" do
       subject.run

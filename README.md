@@ -107,8 +107,14 @@ require 'colorly'
 script = Colorly::Script.load 'script_file.rb'
 
 # ... or from a string
-script_string = "title 'Hello'; add 'red'.spin 10 ; add last.spin 10"
+script_string = "title 'Hello'; add params[:base_color] ; add last.spin 90"
 script = Colorly::Script.new script_string
+
+# Optionally, pass parameters to the script, which you can use in the script
+# by accessing the `params` hash.
+script.params = { base_color: '#cdc' }
+# or
+script.params[:base_color] = '#cdc'
 
 # Run it
 script.run
