@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.executables = ["colorly"]
   s.homepage    = 'https://github.com/dannyben/colorly'
   s.license     = 'MIT'
-  s.required_ruby_version = ">= 2.4.0"
+  s.required_ruby_version = ">= 2.6.0"
 
   s.add_runtime_dependency 'chroma', '~> 0.2'
   s.add_runtime_dependency 'colsole', '~> 0.7'

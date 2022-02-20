@@ -92,10 +92,7 @@ module Colorly
     end
 
     def erb(template, vars)
-      # TODO: This new format is only supported in Ruby >= 2.6
-      #       So for now, we keep the old deprecated syntax
-      # ERB.new(template, trim_mode: '%-').result(binding)
-      ERB.new(template, nil, '%-').result(OpenStruct.new(vars).instance_eval { binding })
+      ERB.new(template, trim_mode: '%-').result(OpenStruct.new(vars).instance_eval { binding })
     end
   end
 end
