@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require "irb"
-require "irb/completion" 
-require "colorly"
+require 'irb'
+require 'irb/completion'
+require 'colorly'
 
 include Colorly
 

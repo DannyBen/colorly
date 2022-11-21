@@ -4,7 +4,7 @@ module Colorly
       @current_title = title
     end
 
-    def add(color)      
+    def add(color)
       if color.is_a? Array
         color.each { |c| add c }
       else
@@ -19,7 +19,7 @@ module Colorly
     end
 
     def random
-      "#%06x" % (rand * 0xffffff)
+      '#%06x' % (rand * 0xffffff)
     end
   end
 end

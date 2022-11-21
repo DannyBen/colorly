@@ -7,19 +7,21 @@ module Colorly
 
     def self.load(script_file)
       raise ScriptNotFound, "Unable to load #{script_file}" unless File.exist? script_file
+
       new File.read(script_file), filename: script_file
     end
 
     def initialize(script, filename: nil)
-      @script, @filename = script, filename
+      @script = script
+      @filename = filename
     end
 
     def run
       run!
     rescue SyntaxError => e
-      raise ScriptSyntaxError.new e
+      raise ScriptSyntaxError, e
     rescue => e
-      raise ScriptError.new e
+      raise ScriptError, e
     end
 
     def output
@@ -58,8 +60,7 @@ module Colorly
     end
 
     def current_title
-      @current_title ||= "Colors"
+      @current_title ||= 'Colors'
     end
-
   end
 end

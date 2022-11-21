@@ -21,5 +21,3 @@ module Colorly
     end
   end
 end
-
-
