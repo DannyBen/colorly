@@ -1,5 +1,5 @@
-require "colsole"
-require "mister_bin"
+require 'colsole'
+require 'mister_bin'
 require 'erb'
 require 'filewatcher'
 require 'json'
@@ -9,24 +9,24 @@ require 'yaml'
 module Colorly
   class Command < MisterBin::Command
     include Colsole
-    summary "Run a colorly script"
+    summary 'Run a colorly script'
     version Colorly::VERSION
 
-    help "Execute a colorly script and save or print its output"
+    help 'Execute a colorly script and save or print its output'
 
-    usage "colorly SCRIPT [OUTPUT_PATH] [--watch --names]"
-    usage "colorly --help | --version"
+    usage 'colorly SCRIPT [OUTPUT_PATH] [--watch --names]'
+    usage 'colorly --help | --version'
 
-    option "-w --watch", "Watch the script file and regenerate on change"
-    option "-n --names", "Also show color names and shades (slower)"
+    option '-w --watch', 'Watch the script file and regenerate on change'
+    option '-n --names', 'Also show color names and shades (slower)'
 
-    param "SCRIPT", "Path to script file"
-    param "OUTPUT_PATH", "Path to output file. The output format is determined by the file extension. Supported formats:\n- YAML (.yaml or .yml)\n- JSON (.json)\n- HTML (.html)\nIf left empty, YAML format will be sent to STDOUT."
+    param 'SCRIPT', 'Path to script file'
+    param 'OUTPUT_PATH', "Path to output file. The output format is determined by the file extension. Supported formats:\n- YAML (.yaml or .yml)\n- JSON (.json)\n- HTML (.html)\nIf left empty, YAML format will be sent to STDOUT."
 
-    example "colorly examples/example.rb"
-    example "colorly examples/example.rb --names"
-    example "colorly examples/example.rb out.json"
-    example "colorly examples/example.rb out.html --watch --names"
+    example 'colorly examples/example.rb'
+    example 'colorly examples/example.rb --names'
+    example 'colorly examples/example.rb out.json'
+    example 'colorly examples/example.rb out.html --watch --names'
 
     attr_reader :script_path, :script, :out_path, :use_names
 
@@ -35,21 +35,21 @@ module Colorly
       @out_path = args['OUTPUT_PATH']
       @use_names = args['--names']
 
-      if args['--watch']
-        generate
-        watch_and_generate
-      else
-        generate
-      end
+      generate
+      return unless args['--watch']
+
+      watch_and_generate
     end
 
   private
 
+    def filewatcher
+      @filewatcher ||= Filewatcher.new(script_path)
+    end
+
     def watch_and_generate
       say "Watching !txtpur!#{script_path}"
-      Filewatcher.new(script_path).watch do
-        generate
-      end
+      filewatcher.watch { generate }
     end
 
     def generate
@@ -78,7 +78,7 @@ module Colorly
       else
         raise Colorly::ArgumentError, "Unknown output format for #{out_path}"
       end
-      
+
       File.write out_path, out_string
       say "Saved !txtpur!#{out_path}"
     end
@@ -88,7 +88,7 @@ module Colorly
     end
 
     def html_template_file
-      File.expand_path "templates/html.erb", __dir__
+      File.expand_path 'templates/html.erb', __dir__
     end
 
     def erb(template, vars)
