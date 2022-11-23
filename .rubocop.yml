@@ -3,7 +3,9 @@ require:
   - rubocop-rspec
 
 inherit_gem:
-  rentacop: rentacop.yml
+  rentacop:
+    - rentacop.yml
+    - rspec.yml
 
 AllCops:
   TargetRubyVersion: 2.6.0
@@ -18,17 +20,3 @@ AllCops:
 Layout/LineLength:
   Exclude:
     - lib/colorly/command.rb
-
-# Allow nameless subjects
-RSpec/NamedSubject:
-  Enabled: false
-
-# Allow the first `describe` to be any text in some cases
-RSpec/DescribeClass:
-  Exclude:
-    - 'spec/colorly/bin_errors_spec.rb'
-
-# Allow multiple expectations
-RSpec/MultipleExpectations:
-  Max: 4
-
