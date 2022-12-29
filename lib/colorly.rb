@@ -1,10 +1,10 @@
 require 'yaml'
 require 'requires'
 require 'byebug' if ENV['BYEBUG']
-requires \
-  'colorly/exceptions',
-  'colorly/version',
-  'colorly'
+
+requires 'colorly/exceptions'
+requires 'colorly/version'
+requires 'colorly'
 
 module Colorly
   class << self
