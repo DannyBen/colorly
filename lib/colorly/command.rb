@@ -21,7 +21,13 @@ module Colorly
     option '-n --names', 'Also show color names and shades (slower)'
 
     param 'SCRIPT', 'Path to script file'
-    param 'OUTPUT_PATH', "Path to output file. The output format is determined by the file extension. Supported formats:\n- YAML (.yaml or .yml)\n- JSON (.json)\n- HTML (.html)\nIf left empty, YAML format will be sent to STDOUT."
+    param 'OUTPUT_PATH', <<~USAGE
+      Path to output file. The output format is determined by the file extension. Supported formats:
+      - YAML (.yaml or .yml)
+      - JSON (.json)
+      - HTML (.html)
+      If left empty, YAML format will be sent to STDOUT.
+    USAGE
 
     example 'colorly examples/example.rb'
     example 'colorly examples/example.rb --names'
@@ -48,7 +54,7 @@ module Colorly
     end
 
     def watch_and_generate
-      say "Watching !txtpur!#{script_path}"
+      say "Watching m`#{script_path}`"
       filewatcher.watch { generate }
     end
 
@@ -80,7 +86,7 @@ module Colorly
       end
 
       File.write out_path, out_string
-      say "Saved !txtpur!#{out_path}"
+      say "Saved m`#{out_path}`"
     end
 
     def html_template

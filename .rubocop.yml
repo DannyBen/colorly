@@ -15,8 +15,3 @@ AllCops:
     - 'examples/**/*'
     - 'spec/approvals/**/*'
     - 'spec/fixtures/**/*'
-
-# Allow longer lines in command DSL
-Layout/LineLength:
-  Exclude:
-    - lib/colorly/command.rb
