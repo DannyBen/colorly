@@ -13,9 +13,7 @@ import 'debug'
 
 help   "Generate examples README"
 action :examples, :x do
-  include Colorly
-
-  script = Script.load 'examples/example.rb'
+  script = Colorly::Script.load 'examples/example.rb'
   script.run
   output = script.output
   output.each do |name, colors|
