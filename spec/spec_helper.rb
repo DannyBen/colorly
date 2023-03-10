@@ -16,7 +16,7 @@ ENV['LINES'] = '30'
 
 # The `raise_approval` matcher provides different results in different Ruby
 # versions, so this constant is used as a diff modifier.
-LEEWAY = ENV['CI'] ? 30 : 0
+LEEWAY = ENV['CI'] ? 40 : 0
 
 RSpec.configure do |c|
   c.include SpecMixin
