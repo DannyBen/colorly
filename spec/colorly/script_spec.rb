@@ -47,7 +47,7 @@ describe Script do
       let(:script_file) { 'spec/fixtures/broken_script.rb' }
 
       it 'raises a ScriptError' do
-        expect { subject.run }.to raise_approval('script/error')
+        expect { subject.run }.to raise_approval('script/error').diff(LEEWAY)
       end
     end
 

@@ -83,7 +83,8 @@ describe Command do
     let(:out) { 'spec/tmp/out.pdf' }
 
     it 'raises an error' do
-      expect { subject.execute %W[#{script_path} #{out}] }.to raise_approval('cli/unknown-extension')
+      expect { subject.execute %W[#{script_path} #{out}] }
+        .to raise_approval('cli/unknown-extension').diff(LEEWAY)
     end
   end
 

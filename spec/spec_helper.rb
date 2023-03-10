@@ -14,6 +14,10 @@ ENV['TTY'] = 'off'
 ENV['COLUMNS'] = '80'
 ENV['LINES'] = '30'
 
+# The `raise_approval` matcher provides different results in different Ruby
+# versions, so this constant is used as a diff modifier.
+LEEWAY = ENV['CI'] ? 40 : 0
+
 RSpec.configure do |c|
   c.include SpecMixin
   c.filter_run_excluding :slow if ENV['FAST']
