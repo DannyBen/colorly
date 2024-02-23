@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.executables = ['colorly']
   s.homepage    = 'https://github.com/dannyben/colorly'
   s.license     = 'MIT'
-  s.required_ruby_version = '>= 3.0'
+  s.required_ruby_version = '>= 3.1'
 
   s.add_runtime_dependency 'chroma', '~> 0.2'
-  s.add_runtime_dependency 'colsole', '>= 0.8.1', '< 2'
+  s.add_runtime_dependency 'colsole', '~> 1.0'
   s.add_runtime_dependency 'filewatcher', '~> 2.0'
   s.add_runtime_dependency 'mister_bin', '~> 0.7'
   s.add_runtime_dependency 'requires', '~> 1.0'
