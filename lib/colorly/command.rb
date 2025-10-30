@@ -9,6 +9,7 @@ require 'yaml'
 module Colorly
   class Command < MisterBin::Command
     include Colsole
+
     summary 'Run a colorly script'
     version Colorly::VERSION
 

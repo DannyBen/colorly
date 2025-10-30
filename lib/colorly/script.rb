@@ -1,6 +1,7 @@
 module Colorly
   class Script
     include DSL
+
     using StringRefinements
     attr_reader :script, :filename
     attr_writer :params
