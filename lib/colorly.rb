@@ -1,6 +1,5 @@
 require 'yaml'
 require 'requires'
-require 'byebug' if ENV['BYEBUG']
 
 requires 'colorly/exceptions'
 requires 'colorly/version'

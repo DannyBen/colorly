@@ -37,7 +37,7 @@ describe Script do
       subject.run
       output = subject.output
 
-      expect(output.to_s).to eq '{"Hello"=>[red, cyan]}'
+      expect(output['Hello'].map(&:to_s)).to match_array(%w[red cyan])
       expect(output['Hello'].first).to be_a Chroma::Color
     end
 
