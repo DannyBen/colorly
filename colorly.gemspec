@@ -17,15 +17,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'chroma', '~> 0.2'
   s.add_dependency 'colsole', '~> 1.0'
-  s.add_dependency 'filewatcher', '~> 2.0'
   s.add_dependency 'mister_bin', '~> 0.7'
   s.add_dependency 'ostruct', '~> 0.6'
   s.add_dependency 'requires', '~> 1.0'
-
-  # FIXME: Remove when resolved.
-  #        This is a sub-dependency of filewatcher which does not bundle logger.
-  #        ref: https://github.com/filewatcher/filewatcher/pull/272
-  s.add_dependency 'logger', '~> 1.6'
+  s.add_dependency 'watchly', '~> 0.1.1'
 
   s.metadata = {
     'bug_tracker_uri'       => 'https://github.com/DannyBen/colorly/issues',
