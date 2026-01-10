@@ -3,8 +3,9 @@
 /coverage
 /debug.runfile
 /dev
+/examples/dev.rb
 /Gemfile.lock
 /gems
 /out.*
+/spec/coverage
 /tmp
-/examples/dev.rb

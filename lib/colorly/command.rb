@@ -1,9 +1,9 @@
 require 'colsole'
-require 'mister_bin'
 require 'erb'
-require 'filewatcher'
 require 'json'
+require 'mister_bin'
 require 'ostruct'
+require 'watchly'
 require 'yaml'
 
 module Colorly
@@ -50,13 +50,13 @@ module Colorly
 
   private
 
-    def filewatcher
-      @filewatcher ||= Filewatcher.new(script_path)
+    def watchly
+      @watchly ||= Watchly::Watcher.new(script_path)
     end
 
     def watch_and_generate
       say "Watching m`#{script_path}`"
-      filewatcher.watch { generate }
+      watchly.on_change { generate }
     end
 
     def generate

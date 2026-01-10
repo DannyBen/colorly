@@ -89,11 +89,11 @@ describe Command do
   end
 
   context 'with --watch' do
-    let(:watcher_double) { instance_double Filewatcher, watch: nil }
+    let(:watchly_double) { instance_double Watchly::Watcher, on_change: nil }
 
     it 'generates immediately and on change' do
-      allow(Filewatcher).to receive(:new).and_return(watcher_double)
-      allow(watcher_double).to receive(:watch).and_yield
+      allow(Watchly::Watcher).to receive(:new).and_return(watchly_double)
+      allow(watchly_double).to receive(:on_change).and_yield
 
       expect { subject.execute %W[#{script_path} --watch] }.to output_approval('cli/watch')
     end
