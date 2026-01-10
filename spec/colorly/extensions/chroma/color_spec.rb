@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Chroma::Color do
   subject { 'blue'.paint.darken(20) }
 

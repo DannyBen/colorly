@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe CLI do
   describe '::router' do
     subject { described_class.router }

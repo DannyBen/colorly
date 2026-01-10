@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Command do
   subject { described_class.new }
 

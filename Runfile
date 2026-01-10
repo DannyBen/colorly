@@ -1,4 +1,4 @@
-require "byebug"
+require "debug" rescue nil
 require "pretty_trace/enable-trim"
 require "lp"
 require 'colorly'
