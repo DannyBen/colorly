@@ -1,5 +1,7 @@
 # Colorly - Command Line Color Palette Generator
 
+![repocard](https://repocard.dannyben.com/svg/colorly.svg)
+
 Colorly is a command line utility and a Ruby library for generating color
 palettes using a simple DSL.
 
